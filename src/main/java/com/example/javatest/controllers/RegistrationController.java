@@ -1,9 +1,7 @@
 package com.example.javatest.controllers;
 
 import com.example.javatest.Dto.Request.RegistrationDto;
-import com.example.javatest.Dto.Results.CampaignResponse;
 import com.example.javatest.Dto.Results.RegistrationResponse;
-import com.example.javatest.entities.Registration;
 import com.example.javatest.services.RegistrationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +25,5 @@ public class RegistrationController {
     public RegistrationResponse createRegistration(@PathVariable String campaignId, @Valid @RequestBody RegistrationDto registrationDto) {
         return registrationService.createRegistration(campaignId, registrationDto);
     }
-
 
 }

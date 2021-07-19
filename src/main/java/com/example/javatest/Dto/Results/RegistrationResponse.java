@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 /**
  * @author Dmitry Itskov
  */
-@AllArgsConstructor
+//@AllArgsConstructor
 public class RegistrationResponse {
     boolean status;
 }
