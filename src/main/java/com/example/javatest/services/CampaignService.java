@@ -20,12 +20,12 @@ public class CampaignService {
 
     public CampaignResponse createCampaign(CampaignRequest campaignName) {
         Campaign campaign = campaignRepo.save(new Campaign(campaignName.getCampagnName(), campaignName.getMandatoryNames()));
-        return new CampaignResponse(campaign.getCampaignName());
+        return new CampaignResponse(campaign.getCampaignName(), campaign.getMandatoryNames());
     }
 
     public CampaignResponse getCampaign(String campaignName) {
         Optional<Campaign> campaignOptional = Optional.ofNullable(campaignRepo.findByCampaignName(campaignName));
-        return campaignOptional.isPresent() ? new CampaignResponse(campaignOptional.get().getCampaignName()) : new CampaignResponse("");
+        return campaignOptional.isPresent() ? new CampaignResponse(campaignOptional.get().getCampaignName(), campaignOptional.get().getMandatoryNames()) : new CampaignResponse("", new String[0]);
     }
 
 }

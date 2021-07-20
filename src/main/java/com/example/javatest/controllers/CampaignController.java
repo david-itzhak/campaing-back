@@ -21,8 +21,8 @@ public class CampaignController {
     private final CampaignService campaignService;
 
     @PostMapping(value = "/marketing/ws/partner/campaign/{id}", produces = "application/json")
-    public CampaignResponse createCampaign(@PathVariable CampaignRequest request) {
-        return campaignService.createCampaign(request);
+    public CampaignResponse createCampaign(@PathVariable String id, @RequestBody String[] mandatoryNames) {
+        return campaignService.createCampaign(new CampaignRequest(id, mandatoryNames));
     }
 
     @GetMapping(value = "/marketing/ws/partner/campaign/{id}", produces = "application/json")
