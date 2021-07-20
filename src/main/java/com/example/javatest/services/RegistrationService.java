@@ -29,8 +29,23 @@ public class RegistrationService {
         if(!campaignOptional.isPresent()){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Campaign Not Found");
         }
+        if(!checkMandatoryFieldsIsProvided(campaignOptional.get().getMandatoryNames(), registrationDto)){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Not provided mandatory field " + "");
+        }
         Registration registration = new Registration(registrationDto.getName(), registrationDto.getFirstName(), registrationDto.getMail(), registrationDto.getTelephone(), campaignOptional.get());
         Registration registrationRes = registrationRepo.save(registration);
         return new RegistrationResponse(registrationRes != null ? true : false);
+    }
+
+    private boolean checkMandatoryFieldsIsProvided(String[] mandatoryNames, RegistrationDto registrationDto){
+        if(mandatoryNames.length == 0){
+            return true;
+        }
+        for(String mandatoryName: mandatoryNames){
+            if(registrationDto == null){
+                return false;
+            }
+        }
+        return true;
     }
 }
