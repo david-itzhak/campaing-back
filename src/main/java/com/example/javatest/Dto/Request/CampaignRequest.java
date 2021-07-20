@@ -14,4 +14,9 @@ public class CampaignRequest {
     @NotNull
     @JsonProperty(value = "name", required = true)
     public String campagnName;
+
+    @NotEmpty
+    @NotNull
+    @JsonProperty(value = "mandatoryName", required = true)
+    public String[] mandatoryNames;
 }

@@ -4,6 +4,7 @@ import com.example.javatest.Dto.Request.RegistrationDto;
 import com.example.javatest.Dto.Results.RegistrationResponse;
 import com.example.javatest.services.RegistrationService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +19,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequiredArgsConstructor
+@Validated
 public class RegistrationController {
 
     private final RegistrationService registrationService;

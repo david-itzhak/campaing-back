@@ -18,8 +18,8 @@ public class CampaignService {
 
     private final CampaignRepo campaignRepo;
 
-    public CampaignResponse createCampaign(String campaignName) {
-        Campaign campaign = campaignRepo.save(new Campaign(campaignName));
+    public CampaignResponse createCampaign(CampaignRequest campaignName) {
+        Campaign campaign = campaignRepo.save(new Campaign(campaignName.getCampagnName(), campaignName.getMandatoryNames()));
         return new CampaignResponse(campaign.getCampaignName());
     }
 
