@@ -12,10 +12,9 @@ import javax.validation.constraints.NotNull;
 public class CampaignRequest {
     @NotEmpty
     @NotNull
-    @JsonProperty(value = "name", required = true)
+    @JsonProperty(value = "campagnName", required = true)
     public String campagnName;
 
-    @NotEmpty
     @NotNull
     @JsonProperty(value = "mandatoryName", required = true)
     public String[] mandatoryNames;

@@ -1,10 +1,8 @@
 package com.example.javatest.entities;
 
 import lombok.*;
-import org.apache.tomcat.util.buf.StringUtils;
 
 import javax.persistence.*;
-import java.util.Arrays;
 
 /**
  * @author Dmitry Itskov
@@ -25,9 +23,11 @@ public class Campaign {
     @Column(name = "mandatoryNames", columnDefinition = "text")
     @Convert(converter = ArrayToStringConverter.class)
     private String[] mandatoryNames;
+
     public String[] getMandatoryNames() {
         return mandatoryNames;
     }
+
     public void setMandatoryNames(String[] mandatoryNames) {
         this.mandatoryNames = mandatoryNames;
     }

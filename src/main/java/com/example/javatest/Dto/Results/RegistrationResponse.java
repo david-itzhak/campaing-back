@@ -1,18 +1,24 @@
 package com.example.javatest.Dto.Results;
 
+import com.example.javatest.entities.Campaign;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.extern.log4j.Log4j2;
+import lombok.EqualsAndHashCode;
+import lombok.Setter;
+
+import javax.persistence.*;
 
 /**
  * @author Dmitry Itskov
  */
-//@AllArgsConstructor
-    @Log4j2
+@AllArgsConstructor
 public class RegistrationResponse {
-    public RegistrationResponse(boolean status) {
-        log.error("RegistrationRegistrationResponse status {}", status);
-        this.status = status;
-    }
 
-    Boolean status;
+    public long id;
+    public String name;
+    public String firstName;
+    public String mail;
+    public String telephone;
+    public String campaign;
+
 }

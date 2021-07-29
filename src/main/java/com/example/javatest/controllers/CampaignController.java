@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
 
 import javax.validation.Valid;
+import java.util.List;
 
 /**
  * @author Dmitry Itskov
@@ -28,5 +29,10 @@ public class CampaignController {
     @GetMapping(value = "/marketing/ws/partner/campaign/{id}", produces = "application/json")
     public CampaignResponse getCampaign(@PathVariable String id) {
         return campaignService.getCampaign(id);
+    }
+
+    @GetMapping(value = "/marketing/ws/partner/campaign", produces = "application/json")
+    public List<CampaignResponse> getAllCampaign() {
+        return campaignService.getAllCampaign();
     }
 }

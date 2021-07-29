@@ -31,7 +31,7 @@ public class Registration {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Exclude
     @Setter(value = AccessLevel.NONE)
-    long id;
+    public long id;
 
     @Column(name = "name", nullable = false)
     public String name;
@@ -47,6 +47,6 @@ public class Registration {
 
     @ManyToOne
     @JoinColumn(name = "campaign", nullable = false)
-    Campaign campaign;
+    public Campaign campaign;
 
 }

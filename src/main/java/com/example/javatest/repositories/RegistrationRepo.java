@@ -10,8 +10,9 @@ import java.util.List;
  * @author Dmitry Itskov
  */
 public interface RegistrationRepo extends JpaRepository<Registration, Long>  {
-    Registration findByName(String name);
+    List<Registration> findByName(String name);
     Registration findByMail(String mail);
     Registration findByTelephone(String telephone);
     List<Registration> findAllByCampaign(Campaign campaign);
+    List<Registration> findAll();
 }
